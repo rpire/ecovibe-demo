@@ -13,11 +13,11 @@ const destinations = [
 	{
 		name: "Cabañas del Bosque",
 		image: cabañasDelBosqueImage,
-		description: "Un refugio natural en el corazón del bosque.",
+		description: "Un refugio natural en el corazón del bosque, lleno de tranquilidad.",
 		location: "Sanare",
 	},
 	{
-		name: "Tour Parque Nacional Dinira",
+		name: "Tour Parque Nacional",
 		image: tourEnLaSelvaImage,
 		description: "Explora la biodiversidad de uno de los parques más hermosos.",
 		location: "El Tocuyo",
@@ -75,16 +75,18 @@ const destinations = [
 		</section>
 		<section>
 			<SectionTitle title="¿Quiénes Somos?" />
-			<p class="application__margin">
-				 EcoVibe es una plataforma digital de turismo sostenible y experiencial que busca revalorizar la esencia de
-				 Barquisimeto a través de experiencias auténticas, personalizadas y conscientes.
-			</p>
-			<Image
-				src={ecoVibeLogo}
-				alt="Logo de EcoVibe"
-				width={500}
-				class="logo application__margin"
-			/>
+			<div class="about-us-block">
+				<p class="application__margin">
+					 EcoVibe es una plataforma digital de turismo sostenible y experiencial que busca revalorizar la esencia de
+					 Barquisimeto a través de experiencias auténticas, personalizadas y conscientes.
+				</p>
+				<Image
+					src={ecoVibeLogo}
+					alt="Logo de EcoVibe"
+					width={500}
+					class="logo application__margin"
+				/>
+			</div>
 		</section>
 		<section class="identity-section">
 			<div class="identity-block mission green">
@@ -129,6 +131,30 @@ const destinations = [
 					</a>
 				</div>
 		</section>
+		<section>
+			<SectionTitle title="Certifica tu Destino" />
+			<p class="application__margin">
+				Si eres un prestador de servicios turísticos y deseas certificar tu destino como sostenible,
+				contáctanos para obtener más información sobre nuestro proceso de certificación. Juntos podemos
+				crear un turismo más responsable y consciente en Barquisimeto.
+			</p>
+			<form>
+				<div class="application__margin">
+					<label for="name">Nombre:</label>
+					<input type="text" id="name" name="name" required />
+				</div>
+				<div class="application__margin">
+					<label for="email">Correo electrónico:</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div class="application__margin">
+					<label for="message">Mensaje:</label>
+					<textarea id="message" name="message" rows="4" required></textarea>
+				</div>
+				<button type="submit">Enviar</button>
+			</div>
+			</form>
+		</section>
 	</main>
 </SiteLayout>
 
@@ -170,9 +196,10 @@ const destinations = [
 	}
 
 	.destination-card {
-		background-color: #264FB0;
-		color: #fff;
+		background-color: #fff;
+		color: #333;
 		border-radius: 10px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	}
 
 	.destination-card img {
@@ -193,8 +220,8 @@ const destinations = [
 		display: block;
 		margin: 10px 20px;
 		padding: 10px;
-		background-color: #fff;
-		color: #264FB0;
+		background-color: #264FB0;
+		color: #fff;
 		text-align: center;
 		font-weight: 700;
 		border-radius: 5px;
@@ -226,6 +253,10 @@ const destinations = [
 		padding: 20px 0;
 	}
 
+	.identity-block h2 {
+		margin-bottom: 10px;
+	}
+
 	.mission {
 		background-image: url("/public/target.svg");
 	}
@@ -255,6 +286,93 @@ const destinations = [
 		color: #264FB0;
 	}
 
+	form {
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(38, 79, 176, 0.08);
+		padding: 32px 24px 24px 24px;
+		max-width: 500px;
+		margin: 32px auto 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	form label {
+		font-weight: 600;
+		color: #264FB0;
+		margin-bottom: 6px;
+		display: block;
+	}
+
+	form input,
+	form textarea {
+		width: 100%;
+		padding: 10px 12px;
+		border: 1.5px solid #219166;
+		border-radius: 6px;
+		font-size: 1rem;
+		margin-top: 4px;
+		margin-bottom: 10px;
+		background: #f8fafc;
+		color: #333;
+		transition: border-color 0.2s;
+	}
+
+	form input:focus,
+	form textarea:focus {
+		outline: none;
+		border-color: #264FB0;
+	}
+
+	form button[type="submit"] {
+		background: #264FB0;
+		color: #fff;
+		font-weight: 700;
+		padding: 12px 0;
+		border: none;
+		border-radius: 6px;
+		font-size: 1.1rem;
+		cursor: pointer;
+		transition: background 0.2s;
+		box-shadow: 0 2px 8px rgba(38, 79, 176, 0.08);
+		width: 100%;
+		max-width: 320px;
+		align-self: center;
+	}
+
+	form button[type="submit"]:hover {
+		background: #219166;
+	}
+
+	.form-thanks {
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(38, 79, 176, 0.08);
+		padding: 36px 28px 28px 28px;
+		max-width: 500px;
+		margin: 40px auto 0 auto;
+		text-align: center;
+		color: #264FB0;
+		font-size: 1.2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+	.form-thanks h3 {
+		color: #219166;
+		font-size: 2rem;
+		margin-bottom: 10px;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+	}
+	.form-thanks p {
+		color: #264FB0;
+		font-size: 1.1rem;
+		margin: 0;
+	}
+
 	@media (width > 668px) {
 		h1 {
 			font-size: 3rem;
@@ -275,6 +393,54 @@ const destinations = [
 			font-size: 4.5rem;
 			line-height: 4.5rem;
 		}
+
+		.destinations-grid {
+			grid-template-columns: repeat(3, 1fr);
+			width: 90%;
+			max-width: 1200px;
+		}
+
+		.about-us-block,
+		.identity-section {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+		
+		.about-us-block {
+			gap: 40px;
+			width: 60%;
+			max-width: 1200px;
+			margin: 0 auto;
+			align-items: center;
+		}
+
+		.identity-block {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 50%;
+			padding: 30px 0;
+		}
+
+		.identity-block h2,
+		.identity-block p {
+			width: 55%;
+		}
+
+		.social-links {
+			gap: 20px;
+			width: 60%;
+			max-width: 450px;
+			margin: 30px auto;
+		}
+
+		form button[type="submit"] {
+			font-size: 1.3rem;
+			padding: 16px 0;
+			max-width: 400px;
+		}
 	}
 
 	@media (width > 1440px) {
@@ -285,4 +451,39 @@ const destinations = [
 			line-height: 7rem;
 		}
 	}
+
+	@media (width > 1024px) {
+		.form-thanks {
+			max-width: 400px;
+			font-size: 1.4rem;
+			padding: 48px 40px 36px 40px;
+		}
+		.form-thanks h3 {
+			font-size: 2.3rem;
+		}
+		.form-thanks p {
+			font-size: 1.2rem;
+		}
+	}
 </style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const thanks = document.createElement('div');
+      thanks.classList.add("form-thanks");
+      const thanksTitle = document.createElement('h3');
+			thanksTitle.textContent = "¡Gracias por contactarnos!";
+			thanks.appendChild(thanksTitle);
+			const thanksParagraph = document.createElement('p');
+			thanksParagraph.textContent = "Hemos recibido tu mensaje y te responderemos pronto.";
+			thanks.appendChild(thanksParagraph);
+      form.innerHTML = '';
+			form.appendChild(thanks);
+    });
+  }
+});
+</script>
