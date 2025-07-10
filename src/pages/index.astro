@@ -14,19 +14,19 @@ const destinations = [
 		name: "Cabañas del Bosque",
 		image: cabañasDelBosqueImage,
 		description: "Un refugio natural en el corazón del bosque, lleno de tranquilidad.",
-		location: "Sanare",
+		slug: "cabanas-del-bosque",
 	},
 	{
 		name: "Tour Parque Nacional",
 		image: tourEnLaSelvaImage,
 		description: "Explora la biodiversidad de uno de los parques más hermosos.",
-		location: "El Tocuyo",
+		slug: "tour-en-la-selva",
 	},
 	{
 		name: "Camping Cascada El León",
 		image: campingLaOllaImage,
 		description: "Una impresionante cascada rodeada de naturaleza virgen.",
-		location: "Quibor",
+		slug: "camping-cascada-el-leon",
 	},
 ];
 ---
@@ -68,7 +68,7 @@ const destinations = [
 						/>
 						<h3>{destination.name}</h3>
 						<p>{destination.description}</p>
-						<a>Ver más</a>
+						<a href={`/destinos/${destination.slug}`}>Ver más</a>
 					</li>
 				))}
 			</ul>	

@@ -1,0 +1,308 @@
+---
+import cabañasDelBosqueImage from '../../images/cabañas-del-bosque.png';
+import tourEnLaSelvaImage from "../../images/tour-en-la-selva.png";
+import campingLaOllaImage from "../../images/camping-la-olla.png";
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+export const getStaticPaths = () => [
+  {
+    params: { slug: 'cabanas-del-bosque' },
+    props: {
+      title: 'Cabañas del Bosque',
+      image: cabañasDelBosqueImage.src,
+		  description: "Un refugio natural en el corazón del bosque, lleno de tranquilidad.",
+    },
+  },
+  {
+    params: { slug: 'tour-en-la-selva' },
+    props: {
+      title: 'Tour en la Selva',
+      image: tourEnLaSelvaImage.src,
+      description: "Explora la biodiversidad de uno de los parques más hermosos.",
+    }
+  },
+  {
+    params: { slug: 'camping-cascada-el-leon' },
+    props: {
+      title: 'Camping Cascada el León',
+      image: campingLaOllaImage.src,
+      description: "Un camping junto a una cascada impresionante, ideal para los amantes de la naturaleza.",
+    }
+  },
+];
+
+const { title, image, description } = Astro.props;
+---
+
+<SiteLayout>
+  <main class="destino-main">
+    <section class="destino-header">
+      <img src={image} alt={title} class="destino-img" />
+      <h1 class="destino-title">{title}</h1>
+      <p class="destino-desc">{description}</p>
+    </section>
+
+    <section class="reserva-section">
+      <h2 class="reserva-title">Reserva tu experiencia</h2>
+      <div class="form-container">
+        <form>
+          <div class="application__margin">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="application__margin">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="application__margin">
+            <label for="fecha">Fecha de reserva:</label>
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+          <div class="application__margin">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+          </div>
+          <button type="submit">Reservar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</SiteLayout>
+
+<style>
+body, .destino-main {
+  background: linear-gradient(120deg, #eafaf1 0%, #e3eafc 100%);
+  min-height: 100vh;
+}
+.destino-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.destino-header {
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(38, 79, 176, 0.13);
+  padding: 40px 32px 32px 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.destino-header::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, #21916633 60%, transparent 100%);
+  z-index: 0;
+}
+.destino-img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 4px 24px rgba(38, 79, 176, 0.13);
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+.destino-title {
+  color: #333;
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  z-index: 1;
+  position: relative;
+}
+.destino-title::after {
+  content: '';
+  display: block;
+  margin: 5px auto 0;
+  width: 80%;
+  height: 7px;
+  background: linear-gradient(to right, #219166, #264FB0); ;
+  border-radius: 3.5px;
+  z-index: -1;
+}
+.destino-desc {
+  color: #333;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  z-index: 1;
+  position: relative;
+}
+.reserva-section {
+  background: rgba(255,255,255,0.97);
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(38, 79, 176, 0.13);
+  padding: 40px 32px 32px 32px;
+  margin-top: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.reserva-section::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, #264FB033 60%, transparent 100%);
+  z-index: 0;
+}
+.reserva-title {
+  color: #333;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+.form-container {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+form {
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+form label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 1.05rem;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e3eafc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  background: #f8fafc;
+  color: #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(38, 79, 176, 0.07);
+}
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #219166;
+  box-shadow: 0 0 0 2px #21916633;
+}
+form button[type="submit"] {
+  background: #219166;
+  color: #fff;
+  font-weight: 800;
+  padding: 14px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px rgba(38, 79, 176, 0.13);
+  width: 100%;
+  max-width: 320px;
+  align-self: center;
+  letter-spacing: 0.03em;
+}
+form button[type="submit"]:hover {
+  background: #264FB0;
+  transform: scale(1.04);
+}
+.form-thanks {
+  background: linear-gradient(120deg, #eafaf1 0%, #e3eafc 100%);
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(38, 79, 176, 0.13);
+  padding: 40px 32px 32px 32px;
+  max-width: 420px;
+  margin: 32px auto 0 auto;
+  text-align: center;
+  color: #333;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 0.7s;
+}
+.form-thanks h3 {
+  color: #264FB0;
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.form-thanks p {
+  color: #333;
+  font-size: 1.15rem;
+  margin: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (width > 1024px) {
+  .destino-main {
+    padding: 60px 0 80px 0;
+  }
+  .destino-header {
+    padding: 60px 48px 48px 48px;
+  }
+  .destino-title {
+    font-size: 3.5rem;
+  }
+  .destino-desc {
+    font-size: 1.5rem;
+  }
+  .reserva-section {
+    padding: 60px 48px 48px 48px;
+  }
+  form {
+    max-width: 520px;
+    gap: 24px;
+  }
+  .form-thanks {
+    max-width: 480px;
+    font-size: 1.4rem;
+    padding: 60px 48px 48px 48px;
+    color: #333;
+  }
+  .form-thanks h3 {
+    font-size: 2.5rem;
+  }
+  .form-thanks p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+}
+</style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      const thanks = document.createElement('div');
+      thanks.className = 'form-thanks';
+      thanks.innerHTML = '<h3>¡Reserva enviada!</h3><p>Gracias por tu interés. Pronto nos pondremos en contacto contigo.</p>';
+      form.parentNode.insertBefore(thanks, form.nextSibling);
+    });
+  }
+});
+</script>
