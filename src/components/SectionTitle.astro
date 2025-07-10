@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props;
+---
+
+<h2>{title}</h2>
+
+<style>
+  h2 {
+    margin: 10px 5% 20px;
+  }
+
+  h2::after {
+    content: "";
+    display: block;
+    width: 175px;
+    height: 5px;
+    background: linear-gradient(
+      to right,
+      #219166 30%,
+      #264FB0 30%
+    );
+    margin-top: 5px;
+    margin-left: -6%;
+    border-radius: 0 5px 5px 0;
+  }
+</style>

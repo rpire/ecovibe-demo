@@ -1,16 +1,288 @@
 ---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import heroImageMobile from "../images/hero-image-mobile.jpg";
+import heroImageDesktop from "../images/hero-image-desktop.jpg";
+import cabañasDelBosqueImage from "../images/cabañas-del-bosque.png";
+import tourEnLaSelvaImage from "../images/tour-en-la-selva.png";
+import campingLaOllaImage from "../images/camping-la-olla.png";
+import ecoVibeLogo from "../images/eco-vibe-logo.png";
+import SectionTitle from "../components/SectionTitle.astro"
+import { Image } from "astro:assets"
 
+const destinations = [
+	{
+		name: "Cabañas del Bosque",
+		image: cabañasDelBosqueImage,
+		description: "Un refugio natural en el corazón del bosque.",
+		location: "Sanare",
+	},
+	{
+		name: "Tour Parque Nacional Dinira",
+		image: tourEnLaSelvaImage,
+		description: "Explora la biodiversidad de uno de los parques más hermosos.",
+		location: "El Tocuyo",
+	},
+	{
+		name: "Camping Cascada El León",
+		image: campingLaOllaImage,
+		description: "Una impresionante cascada rodeada de naturaleza virgen.",
+		location: "Quibor",
+	},
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout>
+	<header>
+		<Image
+			src={heroImageMobile}
+			alt="Imagen del banner"
+			width={5502}
+			height={3096}
+			class="hero-image-mobile"
+		/>
+		<Image
+			src={heroImageDesktop}
+			alt="Imagen del banner"
+			width={5502}
+			height={3096}
+			class="hero-image-desktop"
+		/>
+		<h1>
+			Conecta con
+			<br />
+			la Esencia de
+			<br />
+			Barquisimeto
+		</h1>
+	</header>
+	<main>
+		<section>
+			<SectionTitle title="Destinos Destacados" />
+			<ul class="destinations-grid applicaiton__margin">
+				{destinations.map((destination) => (
+					<li class="destination-card">
+						<Image
+							src={destination.image}
+							alt={destination.name}
+							width={1024}
+						/>
+						<h3>{destination.name}</h3>
+						<p>{destination.description}</p>
+						<a>Ver más</a>
+					</li>
+				))}
+			</ul>	
+		</section>
+		<section>
+			<SectionTitle title="¿Quiénes Somos?" />
+			<p class="application__margin">
+				 EcoVibe es una plataforma digital de turismo sostenible y experiencial que busca revalorizar la esencia de
+				 Barquisimeto a través de experiencias auténticas, personalizadas y conscientes.
+			</p>
+			<Image
+				src={ecoVibeLogo}
+				alt="Logo de EcoVibe"
+				width={500}
+				class="logo application__margin"
+			/>
+		</section>
+		<section class="identity-section">
+			<div class="identity-block mission green">
+				<h2 class="application__margin">Misión</h2>
+				<p class="application__margin">
+					Tenemos como propósito generar un impacto positivo conectando a los viajeros con experiencias auténticas,
+					responsables y alineadas con la cultura local. Ofrecemos vivencias ecológicas que promueven el desarrollo
+					comunitario y el respeto ambiental.
+				</p>
+			</div>
+			<div class="identity-block vision blue">
+				<h2 class="application__margin">Visión</h2>
+				<p class="application__margin">
+					Aspiramos a consolidarsnos como un referente nacional en turismo experiencial sostenible. Nuestra visión es posicionar
+					a Barquisimeto como un destino modelo, donde cada experiencia turística se base en el respeto por la
+					naturaleza, la identidad cultural y la responsabilidad social.
+				</p>
+			</div>
+		</section>
+		<section>
+			<SectionTitle title="Contáctanos" />
+			<p class="application__margin">
+				Si deseas más información sobre nuestros servicios, no dudes en contactarnos a través de nuestras redes sociales
+				o por correo electrónico. Estamos aquí para ayudarte a planificar tu próxima aventura sostenible.
+			</p>
+			<p class="application__margin">
+				<div class="social-links application__margin">
+					<a href="instagram.com/ecovibe_ve" title="Instagram" target="_blank" class="social-link">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+							<rect width="256" height="256" fill="none"/>
+							<circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16"/>
+							<rect x="32" y="32" width="192" height="192" rx="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+							<circle fill="currentColor" cx="180" cy="76" r="12"/>
+						</svg>
+					</a>
+					<a href="mailto:ecovibe@gmail.com" title="Correo electrónico" class="social-link">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+							<rect width="256" height="256" fill="none"/>
+							<path d="M32,56H224a0,0,0,0,1,0,0V192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V56A0,0,0,0,1,32,56Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+							<polyline points="224 56 128 144 32 56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+						</svg>
+					</a>
+				</div>
+		</section>
+	</main>
+</SiteLayout>
+
+<style>
+	.hero-image-mobile,
+	.hero-image-desktop {
+		width: 100%;
+		height: auto;
+	}
+
+	.hero-image-mobile {
+		display: block;
+	}
+
+	.hero-image-desktop {
+		display: none;
+	}
+
+	header {
+		position: relative;
+	}
+
+	h1 {
+		position: absolute;
+		top: 15%;
+		left: 5%;
+		color: #333;
+		letter-spacing: 0.03em;
+		line-height: 2rem;
+	}
+
+	.destinations-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 20px;
+		width: 90%;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	.destination-card {
+		background-color: #264FB0;
+		color: #fff;
+		border-radius: 10px;
+	}
+
+	.destination-card img {
+		border-radius: 10px 10px 0 0;
+		width: 100%;
+		height: auto;
+	}
+
+	.destination-card h3 {
+		margin: 5px 20px;
+	}
+
+	.destination-card p {
+		margin: 0 20px;
+	}
+
+	.destination-card a {
+		display: block;
+		margin: 10px 20px;
+		padding: 10px;
+		background-color: #fff;
+		color: #264FB0;
+		text-align: center;
+		font-weight: 700;
+		border-radius: 5px;
+		text-decoration: none;
+		transition: background-color 0.2s, color 0.2s;
+	}
+
+	.destination-card a:hover {
+		background-color: #219166;
+		color: #fff;
+	}
+
+	.identity-section {
+		padding-bottom: 0;
+	}
+
+	.logo {
+		display: block;
+		width: 60%;
+		height: auto;
+		margin: 20px auto;
+	}
+
+	.identity-block {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		color: #fff;
+		padding: 20px 0;
+	}
+
+	.mission {
+		background-image: url("/public/target.svg");
+	}
+
+	.vision {
+		background-image: url("/public/binoculars.svg");
+	}
+
+	.green {
+		background-color: #219166;
+	}
+
+	.blue {
+		background-color: #264FB0;
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.social-link {
+		display: block;
+		width: 40%;
+		margin: 10px auto;
+		color: #264FB0;
+	}
+
+	@media (width > 668px) {
+		h1 {
+			font-size: 3rem;
+			line-height: 3rem;
+		}
+	}
+
+	@media (width > 1024px) {
+		.hero-image-mobile {
+			display: none;
+		}
+
+		.hero-image-desktop {
+			display: block;
+		}
+
+		h1 {
+			font-size: 4.5rem;
+			line-height: 4.5rem;
+		}
+	}
+
+	@media (width > 1440px) {
+		h1 {
+			top: 25%;
+			left: 10%;
+			font-size: 6.5rem;
+			line-height: 7rem;
+		}
+	}
+</style>

@@ -1,0 +1,72 @@
+---
+
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>EcoVibe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+    <footer>
+      <p class="application__margin">
+        © 2023 EcoVibe. Todos los derechos reservados.
+      </p>
+    </footer>
+	</body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    font-family: 'Lato', sans-serif;
+    color: #121212;
+    font-size: 16px;
+  }
+
+  section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .application__margin {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  footer {
+    background-color: #264FB0;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+</style>
