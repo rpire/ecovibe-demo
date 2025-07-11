@@ -1,30 +1,30 @@
 ---
 import cabañasDelBosqueImage from '../../images/cabañas-del-bosque.png';
-import tourEnLaSelvaImage from "../../images/tour-en-la-selva.png";
+import tourEnLaSelvaImage from "../../images/manto-de-maría.jpg";
 import campingLaOllaImage from "../../images/camping-la-olla.png";
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
 export const getStaticPaths = () => [
   {
-    params: { slug: 'cabanas-del-bosque' },
+    params: { slug: 'cabanas-del-manzano' },
     props: {
-      title: 'Cabañas del Bosque',
+      title: 'Cabañas del Manzano',
       image: cabañasDelBosqueImage.src,
 		  description: "Un refugio natural en el corazón del bosque, lleno de tranquilidad.",
     },
   },
   {
-    params: { slug: 'tour-en-la-selva' },
+    params: { slug: 'manto-de-maria' },
     props: {
-      title: 'Tour en la Selva',
+      title: 'Manto de María',
       image: tourEnLaSelvaImage.src,
-      description: "Explora la biodiversidad de uno de los parques más hermosos.",
+      description: "Monumento colosal que inspira fe y admira con sus vistas panorámicas.",
     }
   },
   {
-    params: { slug: 'camping-cascada-el-leon' },
+    params: { slug: 'camping-cascada-del-vino' },
     props: {
-      title: 'Camping Cascada el León',
+      title: 'Camping Cascada del Vino',
       image: campingLaOllaImage.src,
       description: "Un camping junto a una cascada impresionante, ideal para los amantes de la naturaleza.",
     }
